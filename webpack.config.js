@@ -8,16 +8,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    modules: [__dirname, 'node_modules'],
-    alias: {
-      Main: 'app/components/Main.jsx',
-      Nav: 'app/components/Nav.jsx',
-      Timer: 'app/components/Timer.jsx',
-      Countdown: 'app/components/Countdown.jsx',
-      Clock: 'app/components/Clock.jsx',
-      CountdownForm: 'app/components/CountdownForm.jsx',
-      Controls: 'app/components/Controls.jsx'
-    },
+    modules: [
+      'node_modules',
+      './app/components'
+    ],
     extensions: ['.js', '.jsx']
   },
   module: {
