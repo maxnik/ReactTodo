@@ -56,14 +56,16 @@ export default class Main extends React.Component {
   }
 
   render() {
-    const {todos} = this.state;
+    const {todos, showCompleted, searchText} = this.state;
+    const filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+
     return (
       <div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-sm-12 col-md-6 col-lg-5">
               <TodoSearch onSearch={this.handleSearch}/>
-              <TodoList todos={todos} onToggle={this.handleToggle}/>
+              <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
               <AddTodo onAddTodo={this.handleAddTodo}/>
             </div>
           </div>
