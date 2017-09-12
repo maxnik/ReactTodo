@@ -13,25 +13,30 @@ export default class Main extends React.Component {
       todos: [
         {
           id: uuid(),
-          text: 'Walk the dog'
+          text: 'Walk the dog',
+          completed: false
         },
         {
           id: uuid(),
-          text: 'Clean the yard'
+          text: 'Clean the yard',
+          completed: true
         }, 
         {
           id: uuid(),
-          text: 'Leave mail on porch'
+          text: 'Leave mail on porch',
+          completed: true
         },
         {
           id: uuid(),
-          text: 'Play video games'
+          text: 'Play video games',
+          completed: false
         }
       ]
     };
 
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
   handleAddTodo(text) {
@@ -40,10 +45,23 @@ export default class Main extends React.Component {
         ...this.state.todos,
         {
           id: uuid(),
-          text
+          text,
+          completed: false
         }
       ]
     });
+  }
+
+  handleToggle(id) {
+    const updatedTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+
+      return todo;
+    });
+
+    this.setState({todos: updatedTodos});
   }
 
   handleSearch(showCompleted, searchText) {
@@ -61,7 +79,7 @@ export default class Main extends React.Component {
           <div className="row justify-content-center">
             <div className="col-sm-12 col-md-6 col-lg-5">
               <TodoSearch onSearch={this.handleSearch}/>
-              <TodoList todos={todos}/>
+              <TodoList todos={todos} onToggle={this.handleToggle}/>
               <AddTodo onAddTodo={this.handleAddTodo}/>
             </div>
           </div>
