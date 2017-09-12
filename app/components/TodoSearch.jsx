@@ -9,16 +9,16 @@ export default class TodoSearch extends React.Component {
 
 	handleSearch() {
 		const showCompleted = this.refs.showCompleted.checked;
-		const seachText = this.refs.seachText.value;
+		const searchText = this.refs.searchText.value;
 
-		this.props.onSearch(showCompleted, seachText);
+		this.props.onSearch(showCompleted, searchText);
 	}
 
 	render() {
 		return (
 			<div>
 				<div className="form-group">
-					<input type="search" ref="seachText" className="form-control" placeholder="Search todos" onChange={this.handleSearch}/>
+					<input type="search" ref="searchText" className="form-control" placeholder="Search todos" onChange={this.handleSearch}/>
 				</div>
 				<div className="form-check">
 					<label className="form-check-label">
