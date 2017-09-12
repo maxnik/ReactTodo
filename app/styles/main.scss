@@ -1,1 +1,58 @@
 @import "~bootstrap/scss/bootstrap";
+
+$light-grey: #fafafa;
+$light-grey-border: #eeeeee;
+$light-color: #aaaaaa;
+
+.page-title {
+	text-align: center;
+	padding: 2rem 0;
+}
+
+.app {
+	background-color: $light-grey;
+	border: 1px solid $light-grey-border;
+	border-radius: 5px;
+}
+
+.app__header {
+	border-bottom: 1px solid $light-grey-border;
+
+	label {
+		cursor: pointer; 
+	}
+}
+
+.app__footer {
+	border-top: 1px solid $light-grey-border;
+	padding: 1rem 1rem 0 1rem;
+}
+
+.app__message {
+	color: $light-color;
+	margin: 2rem auto;
+	text-align: center;
+}
+
+.todo {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	padding: 1rem;
+	transition: background .3s ease;
+
+	&:hover {
+		background: #f0f0f0;
+	}
+}
+
+.todo__subtext {
+	color: #999;
+}
+
+.todo-completed {
+	p, .todo-subtext {
+		color: $light-color;
+		text-decoration: line-through;
+	}
+}

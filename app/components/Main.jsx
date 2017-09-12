@@ -66,7 +66,8 @@ export default class Main extends React.Component {
       <div>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-sm-12 col-md-6 col-lg-5">
+            <div className="app col-sm-12 col-md-6 col-lg-5">
+              <h1 className="page-title">Todo App</h1>
               <TodoSearch onSearch={this.handleSearch}/>
               <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
               <AddTodo onAddTodo={this.handleAddTodo}/>

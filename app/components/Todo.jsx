@@ -5,6 +5,8 @@ export default class Todo extends React.Component {
 	render() {
 		const {id, text, completed, createdAt, completedAt} = this.props;
 
+		const todoClassName = completed ? 'form-group todo todo-completed' : 'form-group todo';
+
 		const renderDate = () => {
 			let message = "Created ";
 			let timestamp = createdAt;
@@ -17,13 +19,13 @@ export default class Todo extends React.Component {
 		};
 
 		return (
-			<div className="form-group">
+			<div className={todoClassName}>
 				<label className="form-check-label">
 					<input type="checkbox" className="form-check-input" checked={completed} onChange={() => {
 						this.props.onToggle(id);
 					}}/>
 					<p>{text}</p>
-					<p>{renderDate()}</p>
+					<p className="todo__subtext">{renderDate()}</p>
 				</label>
 			</div>
 		);

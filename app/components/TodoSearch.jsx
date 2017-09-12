@@ -16,7 +16,7 @@ export default class TodoSearch extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="app__header">
 				<div className="form-group">
 					<input type="search" ref="searchText" className="form-control" placeholder="Search todos" onChange={this.handleSearch}/>
 				</div>

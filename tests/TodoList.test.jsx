@@ -21,4 +21,10 @@ describe('TodoList', () => {
 
 		expect(wrapper.find(Todo).length).toBe(todos.length);
 	});
+
+	it('should render empty message if no todos', () => {
+		const wrapper = shallow(<TodoList todos={[]}/>);
+
+		expect(wrapper.find('.app__message').length).toBe(1);
+	});
 });
