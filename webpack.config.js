@@ -10,7 +10,8 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      './app/components'
+      './app/components',
+      './app/api'
     ],
     extensions: ['.js', '.jsx']
   },
