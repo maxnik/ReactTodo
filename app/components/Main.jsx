@@ -30,7 +30,9 @@ export default class Main extends React.Component {
         {
           id: uuid(),
           text,
-          completed: false
+          completed: false,
+          createdAt: (new Date()).getTime(),
+          completedAt: undefined
         }
       ]
     });
@@ -40,6 +42,7 @@ export default class Main extends React.Component {
     const updatedTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
+        todo.completedAt = todo.completed ? (new Date()).getTime() : undefined;
       }
 
       return todo;
