@@ -2,10 +2,10 @@ import React from 'react';
 
 export default class Todo extends React.Component {
 	render() {
-		const {text} = this.props;
+		const {id, text} = this.props;
 		return (
 			<div>
-				{text}
+				{id} {text}
 			</div>
 		);
 	}
