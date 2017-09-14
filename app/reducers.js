@@ -41,6 +41,8 @@ export function todosReducer(state = [], action) {
 						completed: nextCompleted,
 						completedAt: nextCompleted ? (new Date()).getTime() : undefined
 					};
+				} else {
+					return todo;
 				}
 			});
 		default:

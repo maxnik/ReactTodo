@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from 'components/Main';
+import {Provider} from 'react-redux';
 
 import * as actions from 'actions';
 const store = require('configureStore').configure();
@@ -16,6 +17,8 @@ store.dispatch(actions.toggleShowCompleted());
 require('./styles/main.scss');
 
 ReactDOM.render(
-  <Main />,
-  document.getElementById('app')
+	<Provider store={store}>
+  		<Main />
+  	</Provider>,
+  	document.getElementById('app')
 );

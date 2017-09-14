@@ -3,22 +3,26 @@ import expect from 'expect';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
 
-import AddTodo from 'components/AddTodo';
+import {AddTodo} from 'components/AddTodo';
 
 describe('AddTodo', () => {
-	it('should call onAddTodo prop on valid data', () => {
+	it('should dispatch ADD_TODO when valid todo text', () => {
 		const todoText = 'Check mail';
+		const action = {
+			type: 'ADD_TODO',
+			text: todoText
+		}
 		const spy = sinon.spy();
-		const wrapper = mount(<AddTodo onAddTodo={spy}/>);
+		const wrapper = mount(<AddTodo dispatch={spy}/>);
 
 		wrapper.instance().refs.todoText.value = todoText;
 		wrapper.find('form').simulate('submit');
-		expect(spy.args[0]).toEqual([todoText]);
+		expect(spy.args[0]).toEqual([ action ]);
 	});
 
-	it('should not call onAddTodo prop when invalid input', () => {
+	it('should not dispatch ADD_TODO when invalid todo text', () => {
 		const spy = sinon.spy();
-		const wrapper = mount(<AddTodo onAddTodo={spy}/>);
+		const wrapper = mount(<AddTodo dispatch={spy}/>);
 
 		wrapper.instance().refs.todoText.value = '';
 		wrapper.find('form').simulate('submit');

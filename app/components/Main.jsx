@@ -16,7 +16,6 @@ export default class Main extends React.Component {
 
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
   }
 
   componentDidUpdate() {
@@ -38,19 +37,6 @@ export default class Main extends React.Component {
     });
   }
 
-  handleToggle(id) {
-    const updatedTodos = this.state.todos.map((todo) => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-        todo.completedAt = todo.completed ? (new Date()).getTime() : undefined;
-      }
-
-      return todo;
-    });
-
-    this.setState({todos: updatedTodos});
-  }
-
   handleSearch(showCompleted, searchText) {
     this.setState({
       showCompleted,
@@ -69,7 +55,7 @@ export default class Main extends React.Component {
             <div className="app col-sm-12 col-md-6 col-lg-5">
               <h1 className="page-title">Todo App</h1>
               <TodoSearch onSearch={this.handleSearch}/>
-              <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+              <TodoList/>
               <AddTodo onAddTodo={this.handleAddTodo}/>
             </div>
           </div>

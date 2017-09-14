@@ -1,23 +1,36 @@
 import React from 'react';
+import {Provider} from 'react-redux';
 import expect from 'expect';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
-import TodoList from 'components/TodoList';
+import ConnectedTodoList, {TodoList} from 'components/TodoList';
 import Todo from 'components/Todo';
+import {configure} from 'configureStore';
 
 describe('TodoList', () => {
 	it('should render one Todo component for each todo item', () => {
 		const todos = [
 			{
 				id: 1,
-				text: 'Do something'
+				text: 'Do something',
+				completed: false,
+				completedAt: undefined,
+				createdAt: 500
 			},
 			{
 				id: 2,
-				text: 'Check mail'
+				text: 'Check mail',
+				completed: false,
+				completedAt: undefined,
+				createdAt: 500
 			}
 		];
-		const wrapper = shallow(<TodoList todos={todos}/>);
+		const store = configure({ todos });
+		const wrapper = mount(
+			<Provider store={store}>
+				<ConnectedTodoList/>
+			</Provider>
+		);
 
 		expect(wrapper.find(Todo).length).toBe(todos.length);
 	});
