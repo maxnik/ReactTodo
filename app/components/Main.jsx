@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoList from 'TodoList';
-import AddTodo from 'AddTodo';
-import TodoSearch from 'TodoSearch';
+import TodoList from 'components/TodoList';
+import AddTodo from 'components/AddTodo';
+import TodoSearch from 'components/TodoSearch';
 import uuid from 'uuid';
-import TodoAPI from 'TodoAPI';
+import TodoAPI from 'api/TodoAPI';
 
 export default class Main extends React.Component {
   constructor(props) {

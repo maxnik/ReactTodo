@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from 'Main';
+import Main from 'components/Main';
+
+const store = require('configureStore').configure();
 
 require('./styles/main.scss');
 

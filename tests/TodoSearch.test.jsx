@@ -3,7 +3,7 @@ import expect from 'expect';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
 
-import TodoSearch from 'TodoSearch';
+import TodoSearch from 'components/TodoSearch';
 
 describe('TodoSearch', () => {
 	it('should call onSearch with entered input text', () => {

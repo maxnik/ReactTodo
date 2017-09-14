@@ -3,7 +3,7 @@ import expect from 'expect';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
 
-import AddTodo from 'AddTodo';
+import AddTodo from 'components/AddTodo';
 
 describe('AddTodo', () => {
 	it('should call onAddTodo prop on valid data', () => {

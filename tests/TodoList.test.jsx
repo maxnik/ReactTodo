@@ -2,8 +2,8 @@ import React from 'react';
 import expect from 'expect';
 import {shallow} from 'enzyme';
 
-import TodoList from 'TodoList';
-import Todo from 'Todo';
+import TodoList from 'components/TodoList';
+import Todo from 'components/Todo';
 
 describe('TodoList', () => {
 	it('should render one Todo component for each todo item', () => {

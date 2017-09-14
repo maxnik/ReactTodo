@@ -3,7 +3,7 @@ import expect from 'expect';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
 
-import Todo from 'Todo';
+import Todo from 'components/Todo';
 
 describe('Todo', () => {
 	it('should call onToggle prop with id on click', () => {

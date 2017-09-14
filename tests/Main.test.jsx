@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import {shallow} from 'enzyme';
 
-import Main from 'Main';
+import Main from 'components/Main';
 
 describe('Main', () => {
 	it('should add todo to the todos state on handleAddTodo', () => {
