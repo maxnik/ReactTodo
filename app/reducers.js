@@ -35,11 +35,11 @@ export function todosReducer(state = [], action) {
 			return state.map((todo) => {
 				if (todo.id === action.id) {
 					const nextCompleted = !todo.completed;
-					
+
 					return {
 						...todo,
 						completed: nextCompleted,
-						completedAt: nextCompleted ? (new Date()).getTime() : undefined;
+						completedAt: nextCompleted ? (new Date()).getTime() : undefined
 					};
 				}
 			});
